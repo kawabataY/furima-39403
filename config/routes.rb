@@ -1,3 +1,2 @@
 Rails.application.routes.draw do
-  root items#index.html
-end
+  root to: 'items#index'
