@@ -18,7 +18,7 @@
 - has_many :items
 - has_many :orders
 
-## item テーブル
+## items テーブル
 
 | Column             | Type         | Options                        |
 | ------------------ | ------------ | ------------------------------ |
@@ -29,39 +29,39 @@
 | delivery_fee_id    | integer      | null: false                    |
 | sender_address_id  | integer      | null: false                    |
 | shipping_date_id   | integer      | null: false                    |
-| price              | string       | null: false                    |
-| user_id            | references   | null: false, foreign_key: true |
+| price              | integer      | null: false                    |
+| user               | references   | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :users
-- has_one    :orders
+- belongs_to :user
+- has_one    :order
 
 ## orders テーブル
 
 | Column                | Type         | Options                        |
 | --------------------- | ------------ | ------------------------------ |
-| item_id               | references   | null: false, foreign_key: true |
-| user_id               | references   | null: false, foreign_key: true |
-| DeliveryAddressInfo_id| references| null: false, foreign_key: true |
+| item                  | references   | null: false, foreign_key: true |
+| user                  | references   | null: false, foreign_key: true |
+| delivery_address      | references   | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
-- belongs_to :DeliveryAddressInfo テーブル
+- belongs_to :user
+- belongs_to :item
+- has_one    :delivery_address
 
-## DeliveryAddressInfo テーブル
+## delivery_addresses テーブル
 
 | Column             | Type         | Options                        |
 | ------------------ | ------------ | ------------------------------ |
 | post_num           | string       | null: false                    |
-| prefecture         | string       | null: false                    |
+| prefecture_id      | integer      | null: false                    |
 | city               | string       | null: false                    |
 | street_number      | string       | null: false                    |
-| building_name      | string       | null: true                     |
+| building_name      | string       |                                |
 | phone_num          | string       | null: false                    |
 
 ### Association
 
-- has_one :orders 
+- belongs_to :order 
