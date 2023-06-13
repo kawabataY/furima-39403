@@ -39,11 +39,10 @@
 
 ## orders テーブル
 
-| Column                | Type         | Options                        |
-| --------------------- | ------------ | ------------------------------ |
-| item                  | references   | null: false, foreign_key: true |
-| user                  | references   | null: false, foreign_key: true |
-| delivery_address      | references   | null: false, foreign_key: true |
+| Column             | Type         | Options                        |
+| ------------------ | ------------ | ------------------------------ |
+| item               | references   | null: false, foreign_key: true |
+| user               | references   | null: false, foreign_key: true |
 
 ### Association
 
@@ -55,6 +54,7 @@
 
 | Column             | Type         | Options                        |
 | ------------------ | ------------ | ------------------------------ |
+| order              | references   | null: false, foreign_key: true |
 | post_num           | string       | null: false                    |
 | prefecture_id      | integer      | null: false                    |
 | city               | string       | null: false                    |
