@@ -22,14 +22,14 @@ class Item < ApplicationRecord
   validates :shipping_date_id, presence: true
   validates :shipping_date_id, numericality: { other_than: 1 }
   validates :price, presence: true
-  validates :price, format: { with: /\A\d+\z/, message: "は半角数値のみ入力してください。" }
+  validates :price, format: { with: /\A\d+\z/, message: 'は半角数値のみ入力してください。' }
   validate :price_range
 
   private
 
   def price_range
-    if price.present? && (price < 300 || price > 9_999_999)
-      errors.add(:price, 'は¥300から¥9,999,999の範囲内である必要があります。')
-    end
+    return unless price.present? && (price < 300 || price > 9_999_999)
+
+    errors.add(:price, 'は¥300から¥9,999,999の範囲内である必要があります。')
   end
 end
