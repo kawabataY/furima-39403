@@ -22,7 +22,7 @@ class Item < ApplicationRecord
   validates :shipping_date_id, presence: true
   validates :shipping_date_id, numericality: { other_than: 1 }
   validates :price, presence: true
-  validates :price, format: { with: /\A\d+\z/, message: 'は半角数値のみ入力してください。' }
+  validates :price, numericality: { only_integer: true }
   validate :price_range
 
   private
