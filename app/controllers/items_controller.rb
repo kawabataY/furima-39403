@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
   private
 
   def check_item_owner
-    return unless @item.user != current_user # || @item.order.present?
+    return unless @item.user != current_user || @item.order.present?
 
     redirect_to root_path
   end
