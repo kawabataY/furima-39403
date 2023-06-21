@@ -3,9 +3,6 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:new, :create]
   before_action :check_item_owner, only: [:new, :create]
 
-  def index
-  end
-
   def new
     @order_address = OrderAddress.new
   end
