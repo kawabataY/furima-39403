@@ -59,6 +59,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone num は10桁以上11桁以内の半角数値で入力してください')
       end
+      it 'phone_numに数字以外の文字が含まれていると保存できない' do
+        @order_address.phone_num = '11111あああああ'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Phone num は10桁以上11桁以内の半角数値で入力してください')
+      end
       it 'userが紐付いていないと保存できないこと' do
         @order_address.user_id = nil
         @order_address.valid?
