@@ -13,15 +13,15 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :description, presence: true
   validates :category_id, presence: true
-  validates :category_id, numericality: { other_than: 1 }
+  validates :category_id, numericality: { other_than: 1, message: 'は--以外を選択してください' }
   validates :condition_id, presence: true
-  validates :condition_id, numericality: { other_than: 1 }
+  validates :condition_id, numericality: { other_than: 1, message: 'は--以外を選択してください' }
   validates :delivery_fee_id, presence: true
-  validates :delivery_fee_id, numericality: { other_than: 1 }
+  validates :delivery_fee_id, numericality: { other_than: 1, message: 'は--以外を選択してください' }
   validates :prefecture_id, presence: true
-  validates :prefecture_id, numericality: { other_than: 1 }
+  validates :prefecture_id, numericality: { other_than: 1, message: 'は--以外を選択してください' }
   validates :shipping_date_id, presence: true
-  validates :shipping_date_id, numericality: { other_than: 1 }
+  validates :shipping_date_id, numericality: { other_than: 1, message: 'は--以外を選択してください' }
   validates :price, presence: true
   validates :price, numericality: { only_integer: true }
   validate :price_range

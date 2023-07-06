@@ -1,0 +1,62 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        family_name: 苗字
+        first_name: 名前
+        family_name_kana: 苗字（カナ）
+        first_name_kana: 名前（カナ）
+        day_of_birth: 生年月日
+      item:
+        item_name: アイテム名
+        description: 説明文
+        category_id: カテゴリー
+        condition_id: 状態
+        delivery_fee_id: 配送料区分
+        prefecture_id: 都道府県
+        shipping_date_id: 最短発送日
+        price: 価格
+        image: 画像
+        user: 投稿者
+
+    errors:
+      models:
+        item:
+          attributes:
+            category_id:
+              blank: を選択してください
+            condition_id:
+              blank: を選択してください
+            delivery_fee_id:
+              blank: を選択してください
+            prefecture_id:
+              blank: を選択してください
+            shipping_date_id:
+              blank: を選択してください
+
+  activemodel:
+    attributes:
+      order_address:
+        post_num: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        street_number: 住所（番地）
+        building_name: 建物
+        phone_num: 電話番号
+        token: トークン
+        user_id: 購入者情報
+        item_id: 購入商品情報
+    errors:
+      models:
+        order_address:
+          attributes:
+            prefecture_id:
+              blank: を選択してください
+            user_id:
+              blank: が存在しません
+            item_id:
+              blank: が存在しません
+            token:
+              blank: が存在しません
+
